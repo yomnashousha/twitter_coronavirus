@@ -32,8 +32,8 @@ for k,v in items:
 
 # plotting bar graphs
 for k,v in reversed(items[:10]):
-    plt.bar(k, v)
-
+    plt.bar(k, v, color='blue')
+    
 # language identification
 if "코로나바이러스" in args.key:
     language = "Korean"
@@ -44,18 +44,12 @@ else:
 if args.input_path == "reduced.lang":
     plt.xlabel("Language")
     plt.ylabel("Number of Tweets")
-    if language == "Korean":
-        plt.title(args.key + " usage by language", fontproperties=properties[1])
-    elif language == "English":
-        plt.title(args.key + " usage by language")
 else:
     plt.xlabel("Country")
     plt.ylabel("Number of Tweets")
-    if language == "English":
-        plt.title(args.key + " usage by country")
-    elif language == "Korean":
-        plt.title(args.key + " usage by language", fontproperties=properties[1])
 
 # graph as PNG file
-plt.savefig(args.input_path + args.key + '.png')
-plt.show()
+if args.input_path == "reduced.lang":
+     plt.savefig(args.key[1:] + '_lang.png')
+else:
+    plt.savefig(args.key[1:] + '_country.png')
