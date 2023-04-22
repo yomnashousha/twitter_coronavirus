@@ -40,27 +40,27 @@ which generates two files `reduced.lang` and `reduced.country` that contain data
 
 The `visualize.py` file contains `--input_path` (which can =language or =country) and `--key` as inputs and generates a bar graph of the top 10 languages or countries depending on what the input is specified as. 
 
-**#coronavirus usage by langauge**
+# #coronavirus Usage By Language
 <img src=coronavirus_lang.png width=100% />
 
-**#coronavirus usage by country**
+# #coronavirus Usage By Country
 <img src=coronavirus_country.png width=100% />
 
-**#코로나바이러스 usage by langauge**
+# #코로나바이러스 Usage By Language
 <img src=코로나바이러스_lang.png width=100% />
 
-**#코로나바이러스 usage by country**
+# #코로나바이러스 Usage By Country
 <img src=코로나바이러스_country.png width=100% />
 
-The difference between the command for each of these graphs is where the `--input_path` was =language or =country and if `--key` = '#coronavirus' or '#코로나바이러스' 
+The difference between the commands for each of these graphs is whether the `--input_path` was =language or =country and if `--key` = '#coronavirus' or ='#코로나바이러스' 
 
 **Alternative Reduce**
 
 This is a file that takes as input on the command line a list of hashtags,
-and output a line plot where:
+and outputs a line plot where:
 1. There is one line per input hashtag.
 1. The x-axis is the day of the year.
 1. The y-axis is the number of tweets that use that hashtag during the year.
 
-**usage of hashtags in 2020**
+# Usage of Hashtags in 2020
 <img src=line_plot.png width=100% />
