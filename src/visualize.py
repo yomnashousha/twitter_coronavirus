@@ -34,15 +34,27 @@ for k,v in items:
 for k,v in reversed(items[:10]):
     plt.bar(k, v)
 
+# language identification
+if "코로나바이러스" in args.key:
+    language = "Korean"
+else:
+    language = "English"
+
 # titling axes and graphs
 if args.input_path == "reduced.lang":
     plt.xlabel("Language")
     plt.ylabel("Number of Tweets")
-    plt.title(args.key + " usage by language")
+    if language == "Korean":
+        plt.title(args.key + " usage by language", fontproperties=properties[1])
+    elif language == "English":
+        plt.title(args.key + " usage by language")
 else:
     plt.xlabel("Country")
     plt.ylabel("Number of Tweets")
-    plt.title(args.key + " usage by country")
+    if language == "English":
+        plt.title(args.key + " usage by country")
+    elif language == "Korean":
+        plt.title(args.key + " usage by language", fontproperties=properties[1])
 
 # graph as PNG file
 plt.savefig(args.input_path + args.key + '.png')
