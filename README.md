@@ -13,7 +13,7 @@ The output of it running for each day is two files, one that ends in `.lang` for
 ```
 $ ./src/map.py --input_path=/data/Twitter\ dataset/geoTwitter20-02-16.zip
 ```
-This command creates a folder `outputs` that contains the files `/geoTwitter20-02-16.zip.lang` and `/geoTwitter20-02-16.zip.lang`, which are files that contain JSON formatted information summarizing the tweets from 16 February.
+This command creates a folder `outputs` that contains the files `/geoTwitter20-02-16.zip.lang` and `/geoTwitter20-02-16.zip.country`, which are files that contain JSON formatted information summarizing the tweets from 16 February.
 
 In order to process the zip file for every single day in 2020, the file `run_maps.sh` was created. It loops over each file in the dataset and runs the `map.py` command on that file.
 The glob `*` was implemented in order to select only the tweets from 2020 and not all tweets.
@@ -34,7 +34,7 @@ and
 ```
 $ ./src/reduce.py --input_paths outputs/geoTwitter*.lang --output_path=reduced.country
 ```
-which generates two files `reduced.lang` and `reduced.country` that contain data for all of the hashtag usage by language and country for all of 2020, respectively.
+which generate two files `reduced.lang` and `reduced.country` that contain data for all of the hashtag usage by language and country for all of 2020, respectively.
 
 **Visualize**
 
