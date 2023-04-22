@@ -12,6 +12,9 @@ args = parser.parse_args()
 import os
 import json
 from collections import Counter,defaultdict
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 # open the input path
 with open(args.input_path) as f:
@@ -26,3 +29,21 @@ if args.percent:
 items = sorted(counts[args.key].items(), key=lambda item: (item[1],item[0]), reverse=True)
 for k,v in items:
     print(k,':',v)
+
+# plotting bar graphs
+for k,v in reversed(items[:10]):
+    plt.bar(k, v)
+
+# titling axes and graphs
+if args.input_path == "reduced.lang":
+    plt.xlabel("Language")
+    plt.ylabel("Number of Tweets")
+    plt.title(args.key + " usage by language")
+else:
+    plt.xlabel("Country")
+    plt.ylabel("Number of Tweets")
+    plt.title(args.key + " usage by country")
+
+# graph as PNG file
+plt.savefig(args.input_path + args.key + '.png')
+plt.show()
