@@ -63,4 +63,3 @@ and outputs a line plot where:
 1. The y-axis is the number of tweets that use that hashtag during the year.
 
 # Usage of Hashtags in 2020
-<img src=line_plot.png width=100% />
